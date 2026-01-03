@@ -5,12 +5,16 @@ import {usePuterStore} from "~/lib/puter";
 import {convertPdfToImage} from "~/lib/pdf2img";
 import {generateUUID} from "~/utils/formatSize";
 import {prepareInstructions} from "~/constants";
+import {useNavigate} from "react-router";
+
+
 
 const Upload = () => {
     const [isProcessing , setIsProcessing] = useState(false);
     const [statusText , setStatusText] = useState("");
     const [file , setFile] = useState<File | null>(null);
     const {auth , isLoading ,fs ,ai ,kv} = usePuterStore();
+    const navigate =useNavigate();
 
     const handleFileSelect = (file: File | null) => {
         setFile(file)
@@ -104,8 +108,9 @@ const Upload = () => {
         }
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Resume Analysed Successfully');
-        console.log('Analysis complete. Saved data:', data);
-        setIsProcessing(false);
+        console.log( data);
+        navigate(`/resume/${uuid}`);
+
 
     }
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
