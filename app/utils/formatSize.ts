@@ -29,3 +29,6 @@ export function formatSize(bytes: number, fractionDigits: number = 1): string {
 }
 
 export default formatSize;
+
+
+export const generateUUID = () => crypto.randomUUID();

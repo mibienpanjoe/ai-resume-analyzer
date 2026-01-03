@@ -334,6 +334,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
             return;
         }
 
+        // Use the options parameter in the correct position to avoid misinterpreting it as imageURL
         return puter.ai.chat(
             [
                 {
@@ -350,6 +351,8 @@ export const usePuterStore = create<PuterStore>((set, get) => {
                     ],
                 },
             ],
+            undefined,
+            false,
             { model: "claude-sonnet-4" }
         ) as Promise<AIResponse | undefined>;
     };
