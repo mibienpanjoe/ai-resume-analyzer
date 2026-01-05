@@ -52,19 +52,24 @@ ai-resume-analyzer/
 
 ## Quick Start
 
-1) Install dependencies
+1) Clone the repo
+```bash
+git clone https://github.com/mibienpanjoe/ai-resume-analyzer.git
+```   
+
+2) Install dependencies
 
 ```bash
 npm install
 ```
 
-2) Run the dev server
+3) Run the dev server
 
 ```bash
 npm run dev
 ```
 
-3) Open the app
+4) Open the app
 
 Visit `http://localhost:5173`, go to the upload page, add job details, and drop a PDF resume to analyze.
 
