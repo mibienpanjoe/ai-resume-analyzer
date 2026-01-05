@@ -1,87 +1,70 @@
-# Welcome to React Router!
+# AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A lightweight web app that scores and reviews your resume for a specific job. Upload a PDF, add the job context, and get instant ATS-style feedback with suggestions for tone & style, content, structure, and skills.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Preview
+
+![App preview](./public/images/preview.png)
+
+## Tech Stack
+
+- React 19 + React Router 7 (SPA + Data APIs)
+- TypeScript
+- Tailwind CSS 4
+- Vite 7
+- Zustand (state management)
+- react-dropzone (file upload)
+- pdfjs-dist (PDF to image processing)
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- Upload a resume PDF and convert it to an image preview.
+- Provide company name, job title, and job description for context-aware analysis.
+- Get structured feedback and an overall score similar to ATS systems.
+- Clean UI with responsive styles.
+- Modern DX with HMR and type-safe routes.
 
-## Getting Started
+## Folder Structure
 
-### Installation
+```
+ai-resume-analyzer/
+├─ app/                     # Application source (routes, UI, logic)
+│  ├─ components/           # Reusable UI components
+│  │  ├─ FileUploader.tsx
+│  │  └─ ResumeCard.tsx
+│  ├─ constants/            # Static configuration/instructions
+│  ├─ routes/               # Route modules (pages)
+│  │  ├─ home.tsx
+│  │  ├─ upload.tsx
+│  │  ├─ auth.tsx
+│  │  └─ wipe.tsx
+│  ├─ app.css               # Global styles
+│  └─ routes.ts             # Router config helpers
+├─ public/
+│  └─ images/               # Static images (served at /images)
+│     └─ preview.png
+├─ types/                   # Shared TypeScript types
+├─ react-router.config.ts   # React Router config
+├─ vite.config.ts           # Vite configuration
+├─ package.json
+└─ tsconfig.json
+```
 
-Install the dependencies:
+## Quick Start
+
+1) Install dependencies
 
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
+2) Run the dev server
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+3) Open the app
 
-## Building for Production
+Visit `http://localhost:5173`, go to the upload page, add job details, and drop a PDF resume to analyze.
 
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
